@@ -1,4 +1,11 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+  template: './client/index.html',
+  filename: 'index.html',
+  inject: 'body',
+});
 
 module.exports = {
   devServer: {
@@ -27,4 +34,5 @@ module.exports = {
     'react/lib/ReactContext': true,
     'react-addons-test-utils': 'react-dom',
   },
+  plugins: [HtmlWebpackPluginConfig],
 };
