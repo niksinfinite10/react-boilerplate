@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: './client/index.html',
+  template: './src/index.html',
   filename: 'index.html',
   inject: 'body',
 });
@@ -13,7 +13,7 @@ module.exports = {
     compress: true,
     port: 9000,
   },
-  entry: './client/index.js',
+  entry: './src/index.js',
   output: {
     path: path.resolve('dist'),
     filename: 'index_bundle.js',
@@ -26,7 +26,12 @@ module.exports = {
       query: {
         presets: ['react', 'es2015', 'stage-0'],
       },
-    }],
+    },
+    {
+      test: /\.scss$/,
+      loaders: ['style', 'css', 'sass'],
+    },
+    ],
   },
   externals: {
     'react/addons': true,
