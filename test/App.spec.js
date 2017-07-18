@@ -1,0 +1,12 @@
+import React from 'react';
+import { mount, shallow } from 'enzyme';
+import { expect } from 'chai';
+
+import App from '../client/components/App';
+
+describe('<App />', function () {
+  it('should have a h1 to display the heading', function () {
+    const wrapper = shallow(<App/>);
+    expect(wrapper.find('h1')).to.have.length(1);
+  });
+});
